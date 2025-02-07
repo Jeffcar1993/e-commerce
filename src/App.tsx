@@ -5,6 +5,7 @@ import Home from "./Components/Home";
 import Products from "./Components/Products";
 import Lacteos from "./Components/Lacteos";
 import Trucha from "./Components/Trucha";
+import Login from "./Components/Login";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/products" element={ <Products />}/>
             <Route path="/lacteos" element={ <Lacteos />} />
             <Route path="/trucha" element={ <Trucha />} />
+            <Route path="/login" element={ <Login />} />
           </Routes>
       </div>
     </BrowserRouter>
