@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: auto; /* Margen arriba y abajo, centrado horizontalmente */
+    padding: 30px 50px 30px 50px; /* Espaciado a los lados */
+    max-width: 1980px;
+    background-color: var(--yellow-500);
+}
+
+.logo {
+    font-size: 40px;
+    font-family: var(--heading);
+    text-decoration: none;
+    color: var(--neutral-950);
+    cursor: pointer;
+}
+
+.logo:hover {
+    color: var(--sky-900);
+}
+
+.contenedor {
+    margin: 50px auto; /* Margen arriba y abajo, centrado horizontalmente */
+    padding: 0 60px; /* Espaciado a los lados */
+    max-width: 1980px;
+    font-family: var(--text);
+    font-size: 30px;
+}

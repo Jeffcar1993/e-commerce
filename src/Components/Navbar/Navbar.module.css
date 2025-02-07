@@ -1,0 +1,16 @@
+.navbar {
+    display: flex;
+    gap: 20px;
+    font-family: var(--display);
+    font-size: 32px;
+}
+
+.navbar_lista {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--neutral-950);
+}
+
+.navbar_lista:hover {
+    color: var(--sky-900);
+}
