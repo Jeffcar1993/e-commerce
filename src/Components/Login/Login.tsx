@@ -6,12 +6,13 @@ const Login = () => {
         <h1>Bienvenido Administrador</h1>
         <input 
             type="text" 
-            placeholder="ingrese usurio"
+            placeholder="ingrese usuario"
         />
         <input 
             type="text" 
             placeholder="ingrese contraseña"
         />
+        <button>Ingresar</button>
     </div>
   )
 }

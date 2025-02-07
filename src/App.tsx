@@ -1,7 +1,6 @@
 import styles from "./App.module.css";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Navbar from './Components/Navbar'
-import Home from "./Components/Home";
 import Products from "./Components/Products";
 import Lacteos from "./Components/Lacteos";
 import Trucha from "./Components/Trucha";
@@ -18,7 +17,6 @@ function App() {
       </div>
       <div className={styles.contenedor}>
           <Routes>
-            <Route path="/" element={ <Home />} />
             <Route path="/products" element={ <Products />}/>
             <Route path="/lacteos" element={ <Lacteos />} />
             <Route path="/trucha" element={ <Trucha />} />
