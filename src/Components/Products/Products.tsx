@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { pedirDatos } from "../../helpers/pedirDatos";
+import ItemList from "../ItemList";
 
 export interface Producto {
   id: number;
@@ -15,7 +16,6 @@ export interface Producto {
 const Products = () => {
 
   const [productos, setProductos] = useState<Producto[]>([]);
-    console.log(productos);
     
     useEffect(() => {
       pedirDatos()
@@ -27,7 +27,7 @@ const Products = () => {
 
   return (
     <div>
-
+      <ItemList productos={productos} />
     </div>
   )
 }
