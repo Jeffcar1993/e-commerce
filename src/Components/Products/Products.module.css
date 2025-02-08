@@ -1,0 +1,30 @@
+.contenedorProductos {
+    display: grid;
+    grid-template-columns: repeat(3, auto); /* Limita a 3 filas */
+    gap: 40px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.producto {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.imagen {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.info {
+    font-size: 24px;
+    font-weight: 500;
+}
