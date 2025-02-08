@@ -17,6 +17,7 @@ function App() {
       </div>
       <div className={styles.contenedor}>
           <Routes>
+            <Route path="/" element={ <Products />}/>
             <Route path="/products" element={ <Products />}/>
             <Route path="/lacteos" element={ <Lacteos />} />
             <Route path="/trucha" element={ <Trucha />} />

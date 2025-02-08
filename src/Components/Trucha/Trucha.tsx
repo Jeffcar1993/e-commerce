@@ -1,8 +1,9 @@
 
-
 const Trucha = () => {
   return (
-    <div>Trucha</div>
+    <div>
+      <h1>Trucha</h1>
+    </div>
   )
 }
 

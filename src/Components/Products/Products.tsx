@@ -1,24 +1,32 @@
-import styles from "./Products.module.css";
-import data from "../../data/data.json";
+import { useEffect, useState } from "react";
+import { pedirDatos } from "../../helpers/pedirDatos";
+
+export interface Producto {
+  id: number;
+  titulo: string;
+  descripcion: string;
+  categoria: string;
+  imagen: string;
+  precio: number;
+  stock: number;
+}
 
 
 const Products = () => {
 
+  const [productos, setProductos] = useState<Producto[]>([]);
+    console.log(productos);
+    
+    useEffect(() => {
+      pedirDatos()
+        .then((res: Producto[]) => { 
+          setProductos(res);
+        })
+        .catch((err) => console.error("Error al cargar productos:", err));
+    }, []);
+
   return (
     <div>
-
-        <h1>Productos</h1>
-
-        <div className={styles.contenedorProductos}>
-          { data.map((prod) => (
-            <div className={styles.producto} key={prod.id}>
-              <img className={styles.imagen} src={prod.imagen} alt={prod.titulo} />
-              <h2 className={styles.title}>{prod.titulo}</h2>
-              <p className={styles.info}>Cat: {prod.categoria}</p>
-              <p className={styles.info}>$ {prod.precio}</p>
-            </div>
-          ))}
-        </div>
 
     </div>
   )
