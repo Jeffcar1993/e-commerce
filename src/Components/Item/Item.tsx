@@ -1,3 +1,5 @@
+import { useState } from "react";
+import ItemCount from "../ItemCount";
 import { Producto } from "../Products";
 
 interface ItemProps {
@@ -5,6 +7,20 @@ interface ItemProps {
   }
 
 const Item = ({ item }: ItemProps ) => {
+
+  const [count, setCount] = useState(1);
+
+    const handleRestar = () => {
+        if (count > 1) {
+            setCount(count - 1);
+        }
+    }
+
+    const handleSumar = () => {
+        if (count < item.stock)
+        setCount(count + 1)
+    }
+
   return (
     <div>
       <div>
@@ -17,6 +33,7 @@ const Item = ({ item }: ItemProps ) => {
           <h3>{item.categoria}</h3>
           <p>{item.precio}</p>
           <p>{item.stock}</p>
+          <ItemCount count={count} handleRestar={handleRestar} handleSumar={handleSumar} />
         </div>
       </div>
     </div>

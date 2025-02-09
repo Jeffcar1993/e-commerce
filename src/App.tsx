@@ -4,6 +4,7 @@ import Navbar from './Components/Navbar'
 import Products from "./Components/Products";
 import Login from "./Components/Login";
 import ItemDetail from "./Components/ItemDetail";
+import Nosotros from "./Components/Nosotros";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/products" element={ <Products />}/>
             <Route path="/products/:categoria" element={ <Products />}/>
             <Route path="/item/:id" element={ <ItemDetail />} />
+            <Route path="/nosotros" element={ <Nosotros />} />
             <Route path="/login" element={ <Login />} />
           </Routes>
       </div>
