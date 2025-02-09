@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import { Producto } from "../Products";
 import styles from "./ItemList.module.css";
+import { toCapital } from "../../helpers/toCapital";
 
 interface ItemListProps {
     productos: Producto[];
+    titulo: string;
   }
 
-const ItemList = ({ productos }: ItemListProps) => {
+const ItemList = ({ productos, titulo }: ItemListProps) => {
     return (
        <div>
-            <h2 className={styles.title}>Productos</h2>
+            <h2 className={styles.title}>{toCapital(titulo)}</h2>
             <div className={styles.contenedorProductos}>
                 {productos.map((producto) => (
                     <div className={styles.producto} key={producto.id}>
