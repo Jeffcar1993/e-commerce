@@ -2,12 +2,10 @@ import styles from "./App.module.css";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Navbar from './Components/Navbar'
 import Products from "./Components/Products";
-import Lacteos from "./Components/Lacteos";
-import Trucha from "./Components/Trucha";
 import Login from "./Components/Login";
+import ItemDetail from "./Components/ItemDetail";
 
 function App() {
-
 
   return (
     <BrowserRouter>
@@ -19,8 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={ <Products />}/>
             <Route path="/products" element={ <Products />}/>
-            <Route path="/lacteos" element={ <Lacteos />} />
-            <Route path="/trucha" element={ <Trucha />} />
+            <Route path="/item/:id" element={ <ItemDetail />} />
             <Route path="/login" element={ <Login />} />
           </Routes>
       </div>
