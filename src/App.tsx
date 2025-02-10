@@ -1,34 +1,64 @@
 import styles from "./App.module.css";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import Navbar from './Components/Navbar'
+import Navbar from "./Components/Navbar";
 import Products from "./Components/Products";
 import Login from "./Components/Login";
 import ItemDetail from "./Components/ItemDetail";
 import Nosotros from "./Components/Nosotros";
 import Contacto from "./Components/Contacto";
+import { CartContext } from "./Components/context/CartContext";
+import { useState } from "react";
+import { Producto } from "./Components/Products";
 
-function App() {
-
-  return (
-    <BrowserRouter>
-      <div className={styles.container}>
-        <Link className={styles.logo} to="/">E-commerce</Link>
-        <Navbar />
-      </div>
-      <div className={styles.contenedor}>
-          <Routes>
-            <Route path="/" element={ <Products />}/>
-            <Route path="/products" element={ <Products />}/>
-            <Route path="/products/:categoria" element={ <Products />}/>
-            <Route path="/item/:id" element={ <ItemDetail />} />
-            <Route path="/nosotros" element={ <Nosotros />} />
-            <Route path="/contacto" element={ <Contacto />} />
-            <Route path="/login" element={ <Login />} />
-          </Routes>
-      </div>
-    </BrowserRouter>
-
-  )
+interface ProductoEnCarrito extends Producto {
+  cantidad: number;
 }
 
-export default App
+
+const App = () => {
+  const [carrito, setCarrito] = useState<ProductoEnCarrito[]>([]);
+
+
+  const agregarAlCarrito = (item: Producto, cantidad: number) => {
+    const itemAgregado: ProductoEnCarrito = { ...item, cantidad };
+    const nuevoCarrito = [...carrito];
+
+    const estaEnCarrito = nuevoCarrito.find(
+      (producto) => producto.id === itemAgregado.id
+    );
+
+    if (estaEnCarrito) {
+      estaEnCarrito.cantidad += cantidad;
+    } else {
+      nuevoCarrito.push(itemAgregado);
+    }
+
+    setCarrito(nuevoCarrito);
+  };
+
+  return (
+    <CartContext.Provider value={{ carrito, agregarAlCarrito }}>
+      <BrowserRouter>
+        <div className={styles.container}>
+          <Link className={styles.logo} to="/">
+            E-commerce
+          </Link>
+          <Navbar />
+        </div>
+        <div className={styles.contenedor}>
+          <Routes>
+            <Route path="/" element={<Products />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:categoria" element={<Products />} />
+            <Route path="/item/:id" element={<ItemDetail />} />
+            <Route path="/nosotros" element={<Nosotros />} />
+            <Route path="/contacto" element={<Contacto />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </CartContext.Provider>
+  );
+};
+
+export default App;
