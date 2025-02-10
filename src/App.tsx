@@ -5,6 +5,7 @@ import Products from "./Components/Products";
 import Login from "./Components/Login";
 import ItemDetail from "./Components/ItemDetail";
 import Nosotros from "./Components/Nosotros";
+import Contacto from "./Components/Contacto";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/products/:categoria" element={ <Products />}/>
             <Route path="/item/:id" element={ <ItemDetail />} />
             <Route path="/nosotros" element={ <Nosotros />} />
+            <Route path="/contacto" element={ <Contacto />} />
             <Route path="/login" element={ <Login />} />
           </Routes>
       </div>

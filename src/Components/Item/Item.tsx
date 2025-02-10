@@ -1,6 +1,6 @@
 import { useState } from "react";
-import ItemCount from "../ItemCount";
 import { Producto } from "../Products";
+import ItemCount from "../ItemCount";
 
 interface ItemProps {
   item: Producto;
@@ -8,17 +8,21 @@ interface ItemProps {
 
 const Item = ({ item }: ItemProps ) => {
 
-  const [count, setCount] = useState(1);
+  const [cantidad, setCantidad] = useState(1);
 
     const handleRestar = () => {
-        if (count > 1) {
-            setCount(count - 1);
+        if (cantidad > 1) {
+            setCantidad(cantidad - 1);
         }
     }
 
     const handleSumar = () => {
-        if (count < item.stock)
-        setCount(count + 1)
+        if (cantidad < item.stock)
+        setCantidad(cantidad + 1)
+    }
+
+    const handleAgregar = () => {
+      console.log( {...item, cantidad} );
     }
 
   return (
@@ -33,7 +37,7 @@ const Item = ({ item }: ItemProps ) => {
           <h3>{item.categoria}</h3>
           <p>{item.precio}</p>
           <p>{item.stock}</p>
-          <ItemCount count={count} handleRestar={handleRestar} handleSumar={handleSumar} />
+          <ItemCount cantidad={cantidad} handleRestar={handleRestar} handleSumar={handleSumar} handleAgregar={handleAgregar}/>
         </div>
       </div>
     </div>

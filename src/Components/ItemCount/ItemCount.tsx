@@ -1,12 +1,13 @@
 
 
 interface ItemCountProps {
-  count: number;
+  cantidad: number;
     handleRestar: () => void;
     handleSumar: () => void;
+    handleAgregar: () => void;
   }
 
-const ItemCount = ({ count, handleRestar, handleSumar }: ItemCountProps) => {
+const ItemCount = ({ cantidad, handleRestar, handleSumar, handleAgregar }: ItemCountProps) => {
 
     
 
@@ -14,11 +15,11 @@ const ItemCount = ({ count, handleRestar, handleSumar }: ItemCountProps) => {
     <div>
         <div>
             <button onClick={handleRestar}>-</button>
-            <p>{count}</p>
+            <p>{cantidad}</p>
             <button onClick={handleSumar}>+</button>
         </div>
         <div>
-            <button>Add to Cart</button>
+            <button onClick={handleAgregar}>Add to Cart</button>
         </div>
     </div>
   )
