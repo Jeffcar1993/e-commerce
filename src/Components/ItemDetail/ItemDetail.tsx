@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
-import { pedirItem } from "../../helpers/pedirDatos";
 import Item from "../Item/Item";
 import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
 export interface Producto {
-    id: number;
+    id: string;
     titulo: string;
     descripcion: string;
     categoria: string;
@@ -20,13 +21,18 @@ const ItemDetail = () => {
     const id = useParams().id
 
     useEffect(() => {
-        pedirItem(Number(id))
-            .then((res: Producto) => {
-            setItem(res)
-        })
-        .catch((err) => console.error("Error al cargar el producto", err));
-    }, [id])
-
+      if (!id) return; // Verifica que 'id' no sea undefined antes de continuar
+    
+      const docRef = doc(db, "productos", id);
+    
+      getDoc(docRef).then((resp) => {
+        const data = resp.data();
+        if (data) {
+          setItem({ ...data, id: resp.id } as Producto); // Asegura el tipo de Producto
+        }
+      });
+    }, [id]);
+    
   return (
     <div>
         {item && <Item item={item} />}

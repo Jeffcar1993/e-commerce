@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { pedirDatos } from "../../helpers/pedirDatos";
 import ItemList from "../ItemList";
 import { useParams } from "react-router-dom";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
 export interface Producto {
-  id: number;
+  id: string;
   titulo: string;
   descripcion: string;
   categoria: string;
@@ -18,20 +19,23 @@ const Products = () => {
 
   const [productos, setProductos] = useState<Producto[]>([]);
   const category = useParams().categoria;
-  const [titulo, setTitulo] = useState("Productos");
+  const [titulo] = useState("Productos");
     
     useEffect(() => {
-      pedirDatos()
-        .then((res: Producto[]) => { 
-          if (category) {
-            setProductos( res.filter((prod) => prod.categoria === category) );
-            setTitulo(category)
-          } else {
-            setProductos(res);
-            setTitulo("Productos")
-          }
-        })
-        .catch((err) => console.error("Error al cargar productos:", err));
+      
+      const productosRef = collection(db, "productos");
+
+      const q = category ? query(productosRef, where("categoria", "==", category)) : productosRef;
+
+      getDocs(q)
+        .then((resp) => {
+          setProductos(
+            resp.docs.map((doc) => {
+              return { ...(doc.data() as Producto), id: doc.id };
+            })
+          );
+        });
+
     }, [category]);
 
   return (
