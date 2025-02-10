@@ -20,8 +20,8 @@ const Carrito = () => {
       {carrito.length === 0 ? (
         <p>El carrito está vacío</p>
       ) : (
-        carrito.map((prod) => (
-          <div key={prod.id}>
+        carrito.map((prod, index) => (
+          <div key={index}>
             <h2>{prod.titulo}</h2>
             <p>Cantidad: {prod.cantidad}</p>
             <p>Precio und: ${prod.precio}</p>

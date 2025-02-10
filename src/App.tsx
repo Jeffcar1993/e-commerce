@@ -6,59 +6,13 @@ import Login from "./Components/Login";
 import ItemDetail from "./Components/ItemDetail";
 import Nosotros from "./Components/Nosotros";
 import Contacto from "./Components/Contacto";
-import { CartContext, CartContextType } from "./Components/context/CartContext";
-import { useState } from "react";
-import { Producto } from "./Components/Products";
+import { CartProvider } from "./Components/context/CartContext";
 import Carrito from "./Components/Carrito";
 
-interface ProductoEnCarrito extends Producto {
-  cantidad: number;
-}
-
-
 const App = () => {
-  const [carrito, setCarrito] = useState<ProductoEnCarrito[]>([]);
-
-
-  const agregarAlCarrito = (item: Producto, cantidad: number) => {
-    const itemAgregado: ProductoEnCarrito = { ...item, cantidad };
-    const nuevoCarrito = [...carrito];
-
-    const estaEnCarrito = nuevoCarrito.find(
-      (producto) => producto.id === itemAgregado.id
-    );
-
-    if (estaEnCarrito) {
-      estaEnCarrito.cantidad += cantidad;
-    } else {
-      nuevoCarrito.push(itemAgregado);
-    }
-
-    setCarrito(nuevoCarrito);
-  };
-
-  const cantidadCarrito = () => {
-    return carrito.reduce((acc, prod) => acc + prod.cantidad, 0 )
-  }
-
-  const precioTotal = () => {
-    return carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0)
-  }
-
-  const vaciarCarrito = () => {
-    setCarrito([])
-  }
-
-  const contextValue: CartContextType = {
-    carrito,
-    agregarAlCarrito,
-    cantidadCarrito,
-    precioTotal,
-    vaciarCarrito,
-  };
-
+  
   return (
-    <CartContext.Provider value={contextValue}>
+    <CartProvider>
       <BrowserRouter>
         <div className={styles.container}>
           <Link className={styles.logo} to="/">
@@ -79,7 +33,7 @@ const App = () => {
           </Routes>
         </div>
       </BrowserRouter>
-    </CartContext.Provider>
+    </CartProvider>
   );
 };
 
