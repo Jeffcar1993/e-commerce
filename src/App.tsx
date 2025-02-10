@@ -8,6 +8,7 @@ import Nosotros from "./Components/Nosotros";
 import Contacto from "./Components/Contacto";
 import { CartProvider } from "./Components/context/CartContext";
 import Carrito from "./Components/Carrito";
+import CheckOut from "./Components/CheckOut";
 
 const App = () => {
   
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/login" element={<Login />} />
             <Route path="/carrito" element={<Carrito />} />
+            <Route path="/checkout" element={<CheckOut />} />
           </Routes>
         </div>
       </BrowserRouter>
