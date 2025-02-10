@@ -15,8 +15,8 @@ const Item = ({ item }: ItemProps ) => {
     throw new Error("Item must be used within a CartContext.Provider");
   }
 
-  const { carrito, agregarAlCarrito } = cartContext;
-  console.log(carrito);
+  const { agregarAlCarrito } = cartContext;
+ 
   
   const [cantidad, setCantidad] = useState(1);
 
