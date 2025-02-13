@@ -16,7 +16,7 @@ const CartWidget = () => {
   return (
         <Link className={styles.contenedorCart} to={"/carrito"}>
             <h2><ShoppingCart/></h2>
-            <span>{cartContext.cantidadCarrito()}</span>
+            <span className={styles.cantidadCart}>{cartContext.cantidadCarrito()}</span>
         </Link>
   )
 }

@@ -16,10 +16,12 @@ const ItemList = ({ productos, titulo }: ItemListProps) => {
                 {productos.map((producto) => (
                     <div className={styles.producto} key={producto.id}>
                     <img className={styles.imagen} src={producto.imagen} alt={producto.titulo} />
-                    <h2 className={styles.subtitulo}>{producto.titulo}</h2>
-                    <p className={styles.info}>categoria: {producto.categoria}</p>
-                    <p className={styles.info}>${producto.precio}</p>
-                    <Link to={`/item/${producto.id}`}>Ver mas</Link>
+                    <div className={styles.infoContenedoritemlist}>
+                        <h2 className={styles.subtitulo}>{producto.titulo}</h2>
+                        <p className={styles.info}>categoria: {producto.categoria}</p>
+                        <p className={styles.info}>Precio: ${producto.precio}</p>
+                        <Link className={styles.botonVermas} to={`/item/${producto.id}`}>Ver mas</Link>
+                    </div>
                 </div>
                 ))}
             </div>

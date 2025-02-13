@@ -1,15 +1,16 @@
 .contenedorProductos {
     display: grid;
-    grid-template-columns: repeat(3, auto); /* Limita a 3 filas */
-    gap: 40px;
-    padding: 20px;
-    justify-content: center;
+    grid-template-columns: repeat(3, 1fr); /* Limita a 3 filas */
+    gap: 2rem;
+    padding-block: 2rem;
 }
 
 .producto {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    border-radius: 1rem;
+    overflow: hidden;
 }
 
 .title {
@@ -24,12 +25,31 @@
     border-radius: 10px;
 }
 
+.infoContenedoritemlist {
+    padding: 1rem;
+    background-color: rgb(251, 184, 112);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 .subtitulo {
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 32px;
+    font-weight: 600;
 }
 
 .info {
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.botonVermas {
+    padding: 16px 24px;
+    background-color: orange;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    text-decoration: none;
+    width: 50%;
 }
