@@ -3,7 +3,7 @@
     justify-content: space-between;
     margin: auto; /* Margen arriba y abajo, centrado horizontalmente */
     padding: 30px 50px 30px 50px; /* Espaciado a los lados */
-    max-width: 1980px;
+    max-width: auto;
     background-color: var(--yellow-500);
 }
 

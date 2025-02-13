@@ -1,6 +1,8 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { CartContext } from "../context/CartContext"
+import styles from "./Cartwidget.module.css";
+import { ShoppingCart } from "lucide-react";
 
 
 const CartWidget = () => {
@@ -12,12 +14,10 @@ const CartWidget = () => {
   }
 
   return (
-    <div>
-        <Link to={"/carrito"}>
-            <h1>Cart</h1>
+        <Link className={styles.contenedorCart} to={"/carrito"}>
+            <h2><ShoppingCart/></h2>
             <span>{cartContext.cantidadCarrito()}</span>
         </Link>
-    </div>
   )
 }
 
