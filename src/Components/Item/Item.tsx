@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Producto } from "../Products";
 import ItemCount from "../ItemCount";
 import { CartContext } from "../context/CartContext";
+import styles from "./Item.module.css";
 
 interface ItemProps {
   item: Producto;
@@ -32,25 +33,26 @@ const Item = ({ item }: ItemProps ) => {
     }
 
   return (
-    <div>
-      <div>
-        <div>
+      <div className={styles.itemContainer}>
+        <div className={styles.itemImagen}>
           <img src={item.imagen} alt={item.titulo} />
         </div>
-        <div>
-          <h2>{item.titulo}</h2>
-          <p>{item.descripcion}</p>
-          <h3>{item.categoria}</h3>
-          <p>{item.precio}</p>
-          <p>{item.stock}</p>
+        <div className={styles.itemInfo}>
+          <h2 className={styles.itemTitulo}>{item.titulo}</h2>
+          <p className={styles.itemDescripcion}>{item.descripcion}</p>
+          <h3 className={styles.itemCategoria}>categoria: {item.categoria}</h3>
+          <p className={styles.itemStock}>stock: {item.stock}</p>
+          <p className={styles.itemPrecio}>Precio: ${item.precio}</p>
+
           <ItemCount 
             cantidad={cantidad} 
             handleRestar={handleRestar} 
             handleSumar={handleSumar} 
-            handleAgregar={() => {agregarAlCarrito(item, cantidad) }}/>
+            handleAgregar={() => {agregarAlCarrito(item, cantidad) }}
+          />
+
         </div>
       </div>
-    </div>
   )
 }
 

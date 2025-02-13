@@ -1,4 +1,4 @@
-
+import styles from "./ItemCount.module.css";
 
 interface ItemCountProps {
   cantidad: number;
@@ -12,14 +12,14 @@ const ItemCount = ({ cantidad, handleRestar, handleSumar, handleAgregar }: ItemC
     
 
   return (
-    <div>
-        <div>
-            <button onClick={handleRestar}>-</button>
-            <p>{cantidad}</p>
-            <button onClick={handleSumar}>+</button>
+    <div className={styles.itemCount}>
+        <div className={styles.itemcuntInfo}>
+            <button className={styles.botonItemcount} onClick={handleRestar}>-</button>
+            <p className={styles.cantidadItemcount}>{cantidad}</p>
+            <button className={styles.botonItemcount} onClick={handleSumar}>+</button>
         </div>
         <div>
-            <button onClick={handleAgregar}>Add to Cart</button>
+            <button className={styles.botonAgregar} onClick={handleAgregar}>Add to Cart</button>
         </div>
     </div>
   )

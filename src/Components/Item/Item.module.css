@@ -1,0 +1,43 @@
+.itemContainer {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemImagen {
+    border-radius: 12px;
+}
+
+.itemInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.itemTitulo {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    margin-top: 24px;
+}
+
+.itemDescripcion {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.itemCategoria {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.itemPrecio {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.itemStock {
+    font-size: 18px;
+    font-weight: 200;
+}
