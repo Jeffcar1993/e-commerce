@@ -10,6 +10,7 @@ import { CartProvider } from "./Components/context/CartContext";
 import Carrito from "./Components/Carrito";
 import CheckOut from "./Components/CheckOut";
 import { useEffect, useState } from "react";
+import Admin from "./Components/Admin/Admin";
 
 
 const App = () => {
@@ -47,6 +48,7 @@ const App = () => {
             <Route path="/login" element={<Login/>} />
             <Route path="/carrito" element={<Carrito />} />
             <Route path="/checkout" element={<CheckOut />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </div>
       </BrowserRouter>
