@@ -10,18 +10,22 @@ import { CartProvider } from "./Components/context/CartContext";
 import Carrito from "./Components/Carrito";
 import CheckOut from "./Components/CheckOut";
 import { useEffect, useState } from "react";
-import IngresaoProductos from "./Components/IngresoProductos/IngresaoProductos";
-import ProtectedRoute from "./Components/Utils/Utils";
+
 
 const App = () => {
 
   const storedUser = localStorage.getItem('user');
   const [user, setUser] = useState(storedUser ? JSON.parse(storedUser) : null);
 
-useEffect(() => {
-  const storedUser = localStorage.getItem('user');
-  setUser(storedUser ? JSON.parse(storedUser) : null);
-}, []);
+  useEffect(() => {
+    if (!user) {
+      const storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        setUser(JSON.parse(storedUser));
+      }
+    }
+  }, [user]);
+  
   
   return (
     <CartProvider>
@@ -40,22 +44,9 @@ useEffect(() => {
             <Route path="/item/:id" element={<ItemDetail />} />
             <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/contacto" element={<Contacto />} />
-            <Route path="/login" element={<Login setUser={setUser}/>} />
+            <Route path="/login" element={<Login/>} />
             <Route path="/carrito" element={<Carrito />} />
             <Route path="/checkout" element={<CheckOut />} />
-
-            {/* Rutas protegidas */}
-          <Route
-            element={
-              <ProtectedRoute
-                canActivate={!!user} // Verifica si hay un usuario en localStorage
-                redirectPath="/login"
-              />
-            }
-          >
-            <Route path="/ingresarproductos" element={<IngresaoProductos />} />
-          </Route>
-
           </Routes>
         </div>
       </BrowserRouter>
