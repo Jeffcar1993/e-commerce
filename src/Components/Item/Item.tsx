@@ -34,14 +34,14 @@ const Item = ({ item }: ItemProps ) => {
 
   return (
       <div className={styles.itemContainer}>
-        <div className={styles.itemImagen}>
-          <img src={item.imagen} alt={item.titulo} />
+        <div className={styles.contenedorImagen}>
+          <img className={styles.itemImagen} src={item.imagen} alt={item.titulo} />
         </div>
+        
         <div className={styles.itemInfo}>
           <h2 className={styles.itemTitulo}>{item.titulo}</h2>
           <p className={styles.itemDescripcion}>{item.descripcion}</p>
           <h3 className={styles.itemCategoria}>categoria: {item.categoria}</h3>
-          <p className={styles.itemStock}>stock: {item.stock}</p>
           <p className={styles.itemPrecio}>Precio: ${item.precio}</p>
 
           <ItemCount 

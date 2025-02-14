@@ -2,13 +2,21 @@
     display: flex;
     gap: 48px;
     justify-content: center;
-    align-items: center;
+}
+
+.contenedorImagen {
+    width: 500px;
+    height: 500px;
+    margin-top: 24px;
 }
 
 .itemImagen {
-    border-radius: 12px;
+    display: flex;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
 }
-
+    
 .itemInfo {
     display: flex;
     flex-direction: column;
