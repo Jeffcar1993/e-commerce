@@ -1,6 +1,12 @@
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+}
+
 .contenedorProductos {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Limita a 3 filas */
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
     gap: 2rem;
     padding-block: 2rem;
 }
@@ -8,48 +14,62 @@
 .producto {
     display: flex;
     flex-direction: column;
-    gap: 16px;
     border-radius: 1rem;
     overflow: hidden;
+    max-width: 400px;
+    height: 450px;
+    background-color: rgb(255, 190, 91);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.title {
-    font-size: 32px;
-    font-weight: 700;
-}
-
+/* Ajuste para que todas las imágenes tengan el mismo tamaño */
 .imagen {
     width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 10px;
+    height: 250px; /* Altura fija para todas */
+    object-fit: cover; /* Asegura que las imágenes se vean bien */
 }
 
+/* Contenedor de la información ajustado para no dejar espacio vacío */
 .infoContenedoritemlist {
     padding: 1rem;
     background-color: rgb(251, 184, 112);
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 10px;
+    flex-grow: 1; /* Permite que la info ocupe el resto del espacio */
+    justify-content: space-between;
 }
 
+/* Asegura que el texto no desborde */
 .subtitulo {
-    font-size: 32px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
 }
 
 .info {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
+    text-align: center;
 }
 
+/* Ajusta el botón para que todos se vean igual */
 .botonVermas {
-    padding: 16px 24px;
+    padding: 12px 24px;
     background-color: orange;
     color: white;
     border-radius: 8px;
     border: none;
     font-weight: 600;
     text-decoration: none;
-    width: 50%;
+    width: 80%;
+    margin: auto; /* Centrar */
+    margin-bottom: 10px; /* Espacio debajo */
+    display: block;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.botonVermas:hover {
+    background-color: darkorange;
 }
