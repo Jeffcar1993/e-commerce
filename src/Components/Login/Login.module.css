@@ -1,0 +1,26 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 500px;
+}
+
+.tituloLogin {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.botonLogin {
+    background-color: orange;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-weight: 600;
+}

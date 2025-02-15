@@ -12,6 +12,10 @@
     margin-bottom: 1rem;
 }
 
+.infoAdmin {
+    font-size: medium;
+}
+
 .adminContainer {
     background: white;
     padding: 2rem;

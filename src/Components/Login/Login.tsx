@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/config";
+import styles from "./Login.module.css";
 
 
 const Login = () => {
@@ -39,10 +40,11 @@ const Login = () => {
   };
 
   return (
-    <div>
-        <h1>Bienvenido Administrador</h1>
+    <div className={styles.login}>
 
-        <form onSubmit={handleSubmit}>
+        <h1 className={styles.tituloLogin}>Bienvenido Administrador</h1>
+
+        <form className={styles.formLogin} onSubmit={handleSubmit}>
 
             <input 
                 type="email" 
@@ -58,7 +60,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 />
 
-            <button type="submit">Ingresar</button>
+            <button className={styles.botonLogin} type="submit">Ingresar</button>
         
         </form>
 

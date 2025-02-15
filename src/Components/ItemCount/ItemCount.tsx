@@ -9,8 +9,6 @@ interface ItemCountProps {
 
 const ItemCount = ({ cantidad, handleRestar, handleSumar, handleAgregar }: ItemCountProps) => {
 
-    
-
   return (
     <div className={styles.itemCount}>
         <div className={styles.itemcuntInfo}>

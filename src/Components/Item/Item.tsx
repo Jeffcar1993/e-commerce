@@ -28,7 +28,6 @@ const Item = ({ item }: ItemProps ) => {
     }
 
     const handleSumar = () => {
-        if (cantidad < item.stock)
         setCantidad(cantidad + 1)
     }
 

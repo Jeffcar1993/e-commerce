@@ -8,6 +8,7 @@ const Admin = () => {
         imagen: "",
         titulo: "",
         descripcion: "",
+        categoria: "",
         precio: "",
     });
 
@@ -40,6 +41,7 @@ const Admin = () => {
                 imagen: form.imagen,
                 titulo: form.titulo,
                 descripcion: form.descripcion,
+                categoria: form.categoria,
                 precio: form.precio,
                 fecha: new Date().toISOString(), // Agregar fecha de creación
             });
@@ -48,7 +50,7 @@ const Admin = () => {
             setError("");
             
             // Limpiar formulario
-            setForm({ imagen: "", titulo: "", descripcion: "", precio: "" });
+            setForm({ imagen: "", titulo: "", descripcion: "", precio: "", categoria: "" });
 
         } catch (err) {
             if (err instanceof Error) {
@@ -62,6 +64,7 @@ const Admin = () => {
     return (
         <div className={styles.admin}>
             <h1 className={styles.tituloAdmin}>Panel de Administrador</h1>
+            <p className={styles.infoAdmin}>Ingrese los datos completos para cargar un nuevo producto a su App</p>
 
             <form className={styles.adminContainer} onSubmit={handleSubmit}>
                 <input
@@ -85,6 +88,14 @@ const Admin = () => {
                     name="descripcion"
                     placeholder="Descripción del producto"
                     value={form.descripcion}
+                    onChange={handleChange}
+                />
+
+                <input
+                    type="text"
+                    name="categoria"
+                    placeholder="categoria"
+                    value={form.categoria}
                     onChange={handleChange}
                 />
 
