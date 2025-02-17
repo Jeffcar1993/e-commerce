@@ -3,6 +3,7 @@ import { Producto } from "../Products";
 import ItemCount from "../ItemCount";
 import { CartContext } from "../context/CartContext";
 import styles from "./Item.module.css";
+import Carrusel from "../Carrusel";
 
 interface ItemProps {
   item: Producto;
@@ -32,25 +33,27 @@ const Item = ({ item }: ItemProps ) => {
     }
 
   return (
-      <div className={styles.itemContainer}>
-        <div className={styles.contenedorImagen}>
-          <img className={styles.itemImagen} src={item.imagen} alt={item.titulo} />
-        </div>
-        
-        <div className={styles.itemInfo}>
-          <h2 className={styles.itemTitulo}>{item.titulo}</h2>
-          <p className={styles.itemDescripcion}>{item.descripcion}</p>
-          <h3 className={styles.itemCategoria}>categoria: {item.categoria}</h3>
-          <p className={styles.itemPrecio}>Precio: ${item.precio}</p>
+      <div className={styles.itemContain}>
+          <div className={styles.itemContainer}>
+                <div className={styles.contenedorImagen}>
+                  <img className={styles.itemImagen} src={item.imagen} alt={item.titulo} />
+                </div>
+            
+                <div className={styles.itemInfo}>
+                  <h2 className={styles.itemTitulo}>{item.titulo}</h2>
+                  <p className={styles.itemDescripcion}>{item.descripcion}</p>
+                  <h3 className={styles.itemCategoria}>categoria: {item.categoria}</h3>
+                  <p className={styles.itemPrecio}>Precio: ${item.precio}</p>
 
-          <ItemCount 
-            cantidad={cantidad} 
-            handleRestar={handleRestar} 
-            handleSumar={handleSumar} 
-            handleAgregar={() => {agregarAlCarrito(item, cantidad) }}
-          />
-
-        </div>
+                  <ItemCount 
+                    cantidad={cantidad} 
+                    handleRestar={handleRestar} 
+                    handleSumar={handleSumar} 
+                    handleAgregar={() => {agregarAlCarrito(item, cantidad) }}
+                    />
+              </div>
+          </div>
+        <Carrusel />
       </div>
   )
 }

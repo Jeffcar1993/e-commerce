@@ -4,6 +4,11 @@
     justify-content: center;
 }
 
+.itemContain {
+    display: flex;
+    flex-direction: column;
+}
+
 .contenedorImagen {
     width: 500px;
     height: 500px;
