@@ -32,8 +32,8 @@ const App = () => {
     <CartProvider>
       <BrowserRouter>
         <div className={styles.container}>
-          <Link className={styles.logo} to="/">
-            E-commerce
+          <Link className={styles.logoContainer} to="/">
+             <img src="/logo.png" alt="" />
           </Link>
           <Navbar />
         </div>

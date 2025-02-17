@@ -2,9 +2,10 @@
     display: flex;
     justify-content: space-between;
     margin: auto; /* Margen arriba y abajo, centrado horizontalmente */
-    padding: 30px 50px 30px 50px; /* Espaciado a los lados */
+    padding: 0px 50px;
     max-width: auto;
-    background-color: var(--yellow-500);
+    background-color: rgb(233, 197, 129);
+    align-items: center;
 }
 
 .logo {
@@ -26,3 +27,16 @@
     font-family: var(--text);
     font-size: 30px;
 }
+
+.logoContainer {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+  }
+  
+  .logoContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Puede ser 'contain' o 'cover' según el efecto que busques */
+  }
+  
