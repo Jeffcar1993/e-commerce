@@ -3,6 +3,7 @@ import ItemList from "../ItemList";
 import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase/config";
+import Footer from "../Footer";
 
 export interface Producto {
   id: string;
@@ -41,6 +42,7 @@ const Products = () => {
   return (
     <div>
       <ItemList productos={productos} titulo={titulo}/>
+      <Footer/>
     </div>
   )
 }

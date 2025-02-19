@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    max-width: 600px;
 }
 
 .titulocarrito {
@@ -56,8 +55,7 @@
 
 .botonesCarrito {
     display: flex;
-    gap: 12px;
-    justify-content: space-between;
+    gap: 150px;
 }
 
 .precioTotal {

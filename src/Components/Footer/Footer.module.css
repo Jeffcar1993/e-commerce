@@ -1,0 +1,62 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(233, 197, 129);
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  .headFooter {
+    color: black;
+    margin-bottom: 12px;
+  }
+
+  .subtituloFooter {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .infoFooter {
+    font-size: 17px;
+    font-weight: 400;
+  }
+
+  .menuFooter {
+    font-size: 16px;
+    display: flex;
+    gap: 20px;
+  }
+
+  .menu {
+    display: flex;
+    gap: 4px;
+    color: var(--sky-900);
+    text-decoration: none;
+  }
+
+  .footerIcons{
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+  }
+  
+  .iconFooter {
+    color: var(--sky-900);
+    margin: 12px;
+  }
+  
+
+  
+  .footer a:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+    color: white;
+  }
+    
+  

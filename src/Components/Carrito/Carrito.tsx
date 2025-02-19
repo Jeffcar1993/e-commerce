@@ -2,6 +2,7 @@ import styles from "./Carrito.module.css";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import Footer from "../Footer";
 
 const Carrito = () => {
  
@@ -51,6 +52,7 @@ const Carrito = () => {
               </div>
         </>
       }
+      <Footer />
     </div>
   );
 };
