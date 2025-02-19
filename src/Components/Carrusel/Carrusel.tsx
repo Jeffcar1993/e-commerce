@@ -59,7 +59,7 @@ const Carrusel = () => {
                 <h3 className={styles.tituloPrdCarrusel}>{producto.titulo}</h3>
                 <p>categoria: {producto.categoria}</p>
                 <p className={styles.precioCarrusel}>${producto.precio}</p>
-                <Link className={styles.botonVermas} to={`/item/${producto.id}`}>Ver mas</Link>
+                <button className={styles.botonVermas} >Ver mas</button>
             </Link>
             ))}
         </Slider>
