@@ -4,6 +4,7 @@ import ItemCount from "../ItemCount";
 import { CartContext } from "../context/CartContext";
 import styles from "./Item.module.css";
 import Carrusel from "../Carrusel";
+import Footer from "../Footer";
 
 interface ItemProps {
   item: Producto;
@@ -54,6 +55,7 @@ const Item = ({ item }: ItemProps ) => {
               </div>
           </div>
         <Carrusel />
+        <Footer/>
       </div>
   )
 }

@@ -54,13 +54,13 @@ const Carrusel = () => {
       {productos.length > 0 ? (
         <Slider className={styles.slider} {...settings}>
             {productos.map((producto) => (
-            <div key={producto.id} className={styles.producto}>
+            <Link to={`/item/${producto.id}`} key={producto.id} className={styles.producto}>
                 <img src={producto.imagen} alt={producto.titulo} className={styles.imagen} />
                 <h3 className={styles.tituloPrdCarrusel}>{producto.titulo}</h3>
                 <p>categoria: {producto.categoria}</p>
                 <p className={styles.precioCarrusel}>${producto.precio}</p>
                 <Link className={styles.botonVermas} to={`/item/${producto.id}`}>Ver mas</Link>
-            </div>
+            </Link>
             ))}
         </Slider>
         ) : (

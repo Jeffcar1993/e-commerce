@@ -5,7 +5,7 @@ const Nosotros = () => {
   return (
     <section className={styles.container}>
       <div className={styles.content}>
-        <h2>Somos <span className={styles.highlight}>Productos Arcoiris 🌈</span></h2>
+        <h2 className={styles.subtituloNosotros}>Somos <span className={styles.highlight}>Productos Arcoiris 🌈</span></h2>
         <p>
           Nos especializamos en productos frescos y de alta calidad ofrecemos:
         </p>
