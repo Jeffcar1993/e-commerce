@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form"
+import Footer from "../Footer";
+import styles from "./Contacto.module.css";
 
 interface FormData {
     nombre: string;
@@ -18,14 +20,16 @@ const Contacto = () => {
 
   return (
     <div>
-        <h1>Contacto</h1>
+
+    <div className={styles.containerContacto}>
+        <h1 className={styles.tituloContacto}>Contacto</h1>
         <form onSubmit={handleSubmit(enviar)}>
 
             <input 
                 type="text"
                 placeholder="Nombre Completo"
                 {...register("nombre", { required: true })}
-            />
+                />
 
             <input 
                 type="email"
@@ -36,11 +40,13 @@ const Contacto = () => {
             <textarea 
                 placeholder="Mensaje"
                 {...register("mensaje", { required: true })} 
-            ></textarea>
+                ></textarea>
 
             <button type="submit">Enviar</button>
             
         </form>
+    </div>
+        <Footer/>
     </div>
   )
 }
