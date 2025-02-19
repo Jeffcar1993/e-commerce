@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { useNavigate } from "react-router-dom";
+import Footer from "../Footer";
+import styles from "./CheckOut.module.css";
 
 interface FormData {
   nombre: string;
@@ -61,22 +63,26 @@ const CheckOut = () => {
 
   return (
     <div>
-      <h1>Finalizar Compra</h1>
+
+    <div className={styles.containerCheckOut}>
+      <h1 className={styles.tituloCheckOut}>Finalizar Compra</h1>
       <form onSubmit={handleSubmit(comprar)}>
         <input
           type="text"
           placeholder="Nombre Completo"
           {...register("nombre", { required: true })}
-        />
+          />
 
         <input
           type="email"
           placeholder="Email"
           {...register("email", { required: true })}
-        />
+          />
 
         <button type="submit">Comprar</button>
       </form>
+          </div>
+      <Footer />
     </div>
   );
 };
