@@ -303,3 +303,8 @@ hr {
   outline-color: var(--ring);
   outline-width: 2px;
 }
+
+.main-content {
+  flex: 1; /* Permite que el contenido crezca ocupando espacio */
+  padding-bottom: 50px; /* Asegura espacio antes del footer */
+}

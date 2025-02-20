@@ -40,7 +40,7 @@ const Products = () => {
     }, [category]);
 
   return (
-    <div>
+    <div className="main-content">
       <ItemList productos={productos} titulo={titulo}/>
       <Footer/>
     </div>
