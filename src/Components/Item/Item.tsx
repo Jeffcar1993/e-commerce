@@ -5,6 +5,7 @@ import { CartContext } from "../context/CartContext";
 import styles from "./Item.module.css";
 import Carrusel from "../Carrusel";
 import Footer from "../Footer";
+import { Link } from "react-router-dom";
 
 interface ItemProps {
   item: Producto;
@@ -18,9 +19,8 @@ const Item = ({ item }: ItemProps ) => {
     throw new Error("Item must be used within a CartContext.Provider");
   }
 
-  const { agregarAlCarrito } = cartContext;
+  const { agregarAlCarrito, carrito } = cartContext;
  
-  
   const [cantidad, setCantidad] = useState(1);
 
     const handleRestar = () => {
@@ -46,12 +46,22 @@ const Item = ({ item }: ItemProps ) => {
                   <h3 className={styles.itemCategoria}>categoria: {item.categoria}</h3>
                   <p className={styles.itemPrecio}>Precio: ${item.precio}</p>
 
-                  <ItemCount 
-                    cantidad={cantidad} 
-                    handleRestar={handleRestar} 
-                    handleSumar={handleSumar} 
-                    handleAgregar={() => {agregarAlCarrito(item, cantidad) }}
-                    />
+                  <div className={styles.botonesCarrito}>
+
+                    <ItemCount 
+                      cantidad={cantidad} 
+                      handleRestar={handleRestar} 
+                      handleSumar={handleSumar} 
+                      handleAgregar={() => {agregarAlCarrito(item, cantidad) }}
+                      />
+
+                      {/* Botón de "Ir al Carrito" solo si hay productos en el carrito */}
+                      {carrito.length > 0 && (
+                        <Link to="/carrito" className={styles.botonCarrito}>
+                          Ir al carrito
+                        </Link>
+                      )}
+                  </div>
               </div>
           </div>
         <Carrusel />

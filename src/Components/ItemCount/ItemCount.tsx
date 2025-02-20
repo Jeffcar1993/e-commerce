@@ -17,7 +17,7 @@ const ItemCount = ({ cantidad, handleRestar, handleSumar, handleAgregar }: ItemC
             <button className={styles.botonItemcount} onClick={handleSumar}>+</button>
         </div>
         <div>
-            <button className={styles.botonAgregar} onClick={handleAgregar}>Add to Cart</button>
+            <button className={styles.botonAgregar} onClick={handleAgregar}>Agregar</button>
         </div>
     </div>
   )
