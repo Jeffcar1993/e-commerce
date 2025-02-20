@@ -51,10 +51,10 @@ const CheckOut = () => {
 
   if (pedidoId) {
     return (
-      <div>
-        <h1>Muchas gracias por tu compra</h1>
-        <p>Tu número de pedido es: {pedidoId}</p>
-        <button type="button" onClick={volver}>
+      <div className={styles.mensajeReturn}>
+        <h1 className={styles.tituloReturn}>Muchas gracias por tu compra</h1>
+        <p className={styles.infoReturn}>Tu número de pedido es: {pedidoId}</p>
+        <button className={styles.botonReturn} type="button" onClick={volver}>
           Volver al comercio
         </button>
       </div>

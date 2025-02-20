@@ -27,8 +27,6 @@ const Contacto = () => {
         addDoc(mensajeContactoRef, mensajeContacto).then((doc) => {
             setMensaje(doc.id);
         });
-        console.log(data);
-        alert("¡Mensaje enviado exitosamente!");
         reset();
     }
 
@@ -38,10 +36,10 @@ const Contacto = () => {
 
     if (mensaje) {
         return (
-          <div>
-            <h1>Gracias por tu mensaje</h1>
-            <p>nos pondremos en contacto con tigo en el menor tiempo posible.</p>
-            <button type="button" onClick={volver}>
+          <div className={styles.mensajeReturn}>
+            <h1 className={styles.tituloReturn}>Gracias por tu mensaje</h1>
+            <p className={styles.infoReturn}>nos pondremos en contacto con tigo en el menor tiempo posible.</p>
+            <button className={styles.botonReturn} type="button" onClick={volver}>
               Volver al comercio
             </button>
           </div>

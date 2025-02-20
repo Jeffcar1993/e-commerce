@@ -56,3 +56,34 @@
     background: #e65c00;
   }
   
+  .mensajeReturn {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tituloReturn {
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  .infoReturn {
+    font-size: 20px;
+  }
+
+  .botonReturn {
+    font-weight: 600;
+    font-size: 16px;  /* Reduce el tamaño de la fuente */
+    padding: 8px 16px; /* Ajusta el relleno para hacerlo más compacto */
+    max-width: 200px;  /* Limita el ancho máximo */
+    border: none;
+    background-color: orange;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.botonReturn:hover {
+    background-color: var(--sky-900);
+}
