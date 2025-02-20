@@ -44,7 +44,7 @@ const Products = () => {
 
   return (
     <div className="main-content">
-      {isLoading ? <Loading /> : <ItemList productos={productos} titulo={titulo} />}
+      {isLoading ? <Loading /> : <ItemList productos={productos} titulo={titulo} isLoading={isLoading}/>}
       <Footer/>
     </div>
   )
