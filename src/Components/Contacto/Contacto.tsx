@@ -1,6 +1,10 @@
 import { useForm } from "react-hook-form"
 import Footer from "../Footer";
 import styles from "./Contacto.module.css";
+import { useNavigate } from "react-router-dom";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../firebase/config";
+import { useState } from "react";
 
 interface FormData {
     nombre: string;
@@ -9,14 +13,40 @@ interface FormData {
   }
 
 const Contacto = () => {
-
+    const [mensaje, setMensaje] = useState("");
     const { register, handleSubmit, reset } = useForm<FormData>();
+    const navigate = useNavigate();
 
     const enviar = (data: FormData) => {
+        const mensajeContacto = {
+            usuario: data,
+        };
+
+        const mensajeContactoRef = collection(db, "mensajes");
+
+        addDoc(mensajeContactoRef, mensajeContacto).then((doc) => {
+            setMensaje(doc.id);
+        });
         console.log(data);
         alert("¡Mensaje enviado exitosamente!");
         reset();
     }
+
+    const volver = () => {
+        navigate("/products");
+    };
+
+    if (mensaje) {
+        return (
+          <div>
+            <h1>Gracias por tu mensaje</h1>
+            <p>nos pondremos en contacto con tigo en el menor tiempo posible.</p>
+            <button type="button" onClick={volver}>
+              Volver al comercio
+            </button>
+          </div>
+        );
+      }
 
   return (
     <div>
