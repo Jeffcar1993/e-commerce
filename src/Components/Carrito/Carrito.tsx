@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import Footer from "../Footer";
+import { Trash2 } from "lucide-react";
 
 const Carrito = () => {
  
@@ -12,7 +13,7 @@ const Carrito = () => {
           return <p>Cargando carrito...</p>;
         }
       
-        const { carrito, precioTotal, vaciarCarrito } = cartContext;
+        const { carrito, precioTotal, vaciarCarrito, eliminarProducto } = cartContext;
       
         const handleVaciar = () => {
           vaciarCarrito();
@@ -36,6 +37,13 @@ const Carrito = () => {
               <p className={styles.infoCarrito}>Precio und: ${prod.precio}</p>
               <p className={styles.infoCarrito}>Precio total: ${prod.precio * prod.cantidad}</p>
             </div>
+            {/* Botón para eliminar un solo producto */}
+            <button 
+                className={styles.botonEliminar} 
+                onClick={() => eliminarProducto(prod.id)}
+              >
+                <Trash2 className={styles.trash} size="22px" />
+              </button>
             <br />
           </div>
 

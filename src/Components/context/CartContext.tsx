@@ -11,6 +11,7 @@ export interface CartContextType {
   cantidadCarrito: () => number;
   precioTotal: () => number;
   vaciarCarrito: () => void;
+  eliminarProducto: (id: string) => void;
 }
 
 export const CartContext = createContext<CartContextType | null>(null);
@@ -52,6 +53,10 @@ export const CartProvider = ({ children }: CartProviderProps) => {
       : 0; // ✅ Evita NaN si el carrito está vacío o si un producto no tiene precio
   };
   
+  const eliminarProducto = (id: string) => {
+    setCarrito((prevCarrito) => prevCarrito.filter(prod => prod.id !== id));
+  };
+  
 
   const vaciarCarrito = () => {
     setCarrito([])
@@ -67,6 +72,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     cantidadCarrito,
     precioTotal,
     vaciarCarrito,
+    eliminarProducto,
   };
 
   return (
