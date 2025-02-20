@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import Footer from "../Footer";
+import Loading from "../Loading";
 
 export interface Producto {
   id: string;
@@ -21,6 +22,7 @@ const Products = () => {
   const [productos, setProductos] = useState<Producto[]>([]);
   const category = useParams().categoria;
   const [titulo] = useState("Productos");
+  const [isLoading, setIsLoading] = useState(true)
     
     useEffect(() => {
       
@@ -35,13 +37,14 @@ const Products = () => {
               return { ...(doc.data() as Producto), id: doc.id };
             })
           );
+          setIsLoading(false);
         });
 
     }, [category]);
 
   return (
     <div className="main-content">
-      <ItemList productos={productos} titulo={titulo}/>
+      {isLoading ? <Loading /> : <ItemList productos={productos} titulo={titulo} />}
       <Footer/>
     </div>
   )
