@@ -1,4 +1,4 @@
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import styles from "./Footer.module.css";
 import { Link } from "react-router-dom";
 import { CircleUser, House, LeafyGreen, Target } from "lucide-react";
@@ -20,10 +20,18 @@ const Footer = () => {
         </div>
 
         <div className={styles.footerIcons}>
-          <Link className={styles.iconFooter} to="#"><FaFacebook /></Link>
-          <Link className={styles.iconFooter} to="#"><FaInstagram /></Link>
-          <Link className={styles.iconFooter} to="#"><FaTwitter /></Link>
-          <Link className={styles.iconFooter} to="#"><FaLinkedin /></Link>
+          <a className={styles.iconFooter} href="https://www.facebook.com/profile.php?id=61564937216903" target="_blank" rel="noopener noreferrer">
+            <FaInstagram />
+          </a>
+
+          <a className={styles.iconFooter} href="https://www.facebook.com/profile.php?id=61564937216903" target="_blank" rel="noopener noreferrer">
+            <FaFacebook />
+          </a>
+
+          <a className={styles.iconFooter} href="https://wa.me/3193238434" target="_blank" rel="noopener noreferrer">
+            <FaWhatsapp />
+          </a>
+
         </div>
 
       <p>© {new Date().getFullYear()} Productos Arcoiris. Todos los derechos reservados.</p>
