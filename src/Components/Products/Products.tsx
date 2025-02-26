@@ -17,49 +17,93 @@ export interface Producto {
   stock: number;
 }
 
-
 const Products = () => {
-
   const [productos, setProductos] = useState<Producto[]>([]);
+  const [banners, setBanners] = useState([
+    { id: "1", img: "", titulo: "🌟 ¡Nuevo Lanzamiento! 🌟", descripcion: "Yogurt Griego - ¡Nuevos sabores uchuva y papayuela!", link: "/item/NgcOzwpDVocYi1vEdik5" },
+    { id: "2", img: "", titulo: "🌟 ¡Producto Delicioso! 🌟", descripcion: "Frambuesa - ¡Fruta deliciosa!", link: "/item/J9VZ7LzLgBm0mBQlSm7h" },
+    { id: "3", img: "", titulo: "🌟 ¡Muy Saludable! 🌟", descripcion: "Uchuva - ¡Fruta fresca y saludable!", link: "/item/H76gYtkg3FC1Gkf7vhIF" },
+  ]);
   const category = useParams().categoria;
   const [titulo] = useState("Productos");
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
+  const [currentBanner, setCurrentBanner] = useState(0);
+
+  useEffect(() => {
+    const productosRef = collection(db, "productos");
+    const q = category ? query(productosRef, where("categoria", "==", category)) : productosRef;
+
+    getDocs(q).then((resp) => {
+      setProductos(
+        resp.docs.map((doc) => ({ ...(doc.data() as Producto), id: doc.id }))
+      );
+      setIsLoading(false);
+    });
+  }, [category]);
+
+  useEffect(() => {
+    const fetchBanners = async () => {
+      try {
+        const imagenesRef = collection(db, "imagenes");
+        const snapshot = await getDocs(imagenesRef);
+        
+        if (!snapshot.empty) {
+          // Convertir los documentos en un objeto donde la clave es el ID del documento
+          const imagenesMap = snapshot.docs.reduce((acc, doc) => {
+            acc[doc.id] = doc.data().imagen; // Guardamos la URL de la imagen
+            return acc;
+          }, {} as Record<string, string>);
     
-    useEffect(() => {
-      
-      const productosRef = collection(db, "productos");
-
-      const q = category ? query(productosRef, where("categoria", "==", category)) : productosRef;
-
-      getDocs(q)
-        .then((resp) => {
-          setProductos(
-            resp.docs.map((doc) => {
-              return { ...(doc.data() as Producto), id: doc.id };
+          // Actualizar los banners con la imagen correcta según el ID en el link
+          setBanners((prevBanners) =>
+            prevBanners.map((banner) => {
+              // Extraer el ID del link ("/item/ID")
+              const bannerId = banner.link.split("/item/")[1];
+    
+              return {
+                ...banner,
+                img: imagenesMap[bannerId] || "/default-banner.jpg",
+              };
             })
           );
-          setIsLoading(false);
-        });
+        }
+      } catch (error) {
+        console.error("Error cargando imágenes de Firestore:", error);
+      }
+    };    
+        
+    fetchBanners();
+  }, []);
 
-    }, [category]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBanner((prev) => (prev + 1) % banners.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [banners]);
+
+  const nextBanner = () => setCurrentBanner((prev) => (prev + 1) % banners.length);
+  const prevBanner = () => setCurrentBanner((prev) => (prev - 1 + banners.length) % banners.length);
 
   return (
     <div className="main-content">
-
-      {/* Banner de producto destacado */}
+      <div className={styles.bannerContainer}>
+        <button onClick={prevBanner} className={styles.prevButton}>‹</button>
         <div className={styles.banner}>
-          <img src="/producto.png" alt="Nuevo Producto" className={styles.bannerImg} />
+          <img src={banners[currentBanner].img} alt={banners[currentBanner].titulo} className={styles.bannerImg} />
           <div className={styles.bannerContent}>
-            <h2 className={styles.tituloBanner}>🌟 ¡Nuevo Lanzamiento! 🌟</h2>
-            <p className={styles.infoBanner}><strong>Yogurt Griego</strong>. ¡Nuevos sabores uchuva y papayuela!</p>
-            <Link to={"/item/Ll3rIVnxDMOZQXlKN7Pj"} className={styles.bannerBtn}>Ver Producto</Link>
+            <h2 className={styles.tituloBanner}>{banners[currentBanner].titulo}</h2>
+            <p className={styles.infoBanner}>{banners[currentBanner].descripcion}</p>
+            <Link to={banners[currentBanner].link} className={styles.bannerBtn}>Ver Producto</Link>
           </div>
         </div>
-
+        <button onClick={nextBanner} className={styles.nextButton}>›</button>
+      </div>
       {isLoading ? <Loading /> : <ItemList productos={productos} titulo={titulo} isLoading={isLoading}/>}
-      <Footer/>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Products
+export default Products;

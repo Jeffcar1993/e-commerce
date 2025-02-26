@@ -17,9 +17,11 @@
 
 .itemImagen {
     display: flex;
-    width: 100%;
     object-fit: cover;
     border-radius: 10px;
+    max-width: 400px;
+    max-height: 500px;
+    margin-bottom: 24px;
 }
     
 .itemInfo {
