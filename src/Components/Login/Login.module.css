@@ -24,3 +24,75 @@
     color: white;
     font-weight: 600;
 }
+
+/* Ajuste en pantallas más pequeñas */
+@media (max-width: 768px) {
+    .login {
+        max-width: 90%;
+        padding: 15px;
+    }
+}
+
+.tituloLogin {
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Reducir tamaño del título en móviles */
+@media (max-width: 480px) {
+    .tituloLogin {
+        font-size: 24px;
+    }
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+}
+
+/* Ajustar inputs en pantallas pequeñas */
+@media (max-width: 480px) {
+    input {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+input:focus {
+    border-color: #ff6600;
+}
+
+.botonLogin {
+    background-color: orange;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* Ajustar botón en móviles */
+@media (max-width: 480px) {
+    .botonLogin {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
+
+.botonLogin:hover {
+    background-color: var(--sky-900);
+}
