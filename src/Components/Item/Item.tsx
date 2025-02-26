@@ -45,7 +45,6 @@ const Item = ({ item }: ItemProps) => {
           <p className={styles.itemDescripcion}>{item.descripcion}</p>
           <h3 className={styles.itemCategoria}>Categoría: {item.categoria}</h3>
           <p className={styles.itemPrecio}>Precio: ${item.precio}</p>
-          <p className={styles.itemStock}>Stock disponible: {item.stock}</p>
 
           <div className={styles.botonesCarrito}>
             <ItemCount 
