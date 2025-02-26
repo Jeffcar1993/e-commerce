@@ -59,4 +59,63 @@
     color: white;
   }
     
-  
+  /* Ajustes para tablets (≤768px) */
+@media (max-width: 768px) {
+  .footer {
+    padding: 16px;
+    margin-top: 30px;
+  }
+
+  .subtituloFooter {
+    font-size: 20px;
+  }
+
+  .infoFooter {
+    font-size: 15px;
+  }
+
+  .menuFooter {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footerIcons {
+    gap: 16px;
+  }
+
+  .iconFooter {
+    margin: 8px;
+    font-size: 22px; /* Ajusta el tamaño de los íconos */
+  }
+}
+
+/* Ajustes para móviles (≤480px) */
+@media (max-width: 480px) {
+  .footer {
+    padding: 12px;
+    margin-top: 20px;
+  }
+
+  .subtituloFooter {
+    font-size: 18px;
+  }
+
+  .infoFooter {
+    font-size: 14px;
+  }
+
+  .menuFooter {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footerIcons {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .iconFooter {
+    margin: 6px;
+    font-size: 20px;
+  }
+}

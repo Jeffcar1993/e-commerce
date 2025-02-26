@@ -1,16 +1,61 @@
 .navbar {
     display: flex;
-    gap: 20px;
-    font-family: var(--display);
-    font-size: 28px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
 }
 
+/* Oculta el menú hamburguesa en pantallas grandes */
+.menuToggle {
+    display: none;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+/* Contenedor de enlaces */
+.navbar_menu {
+    display: flex;
+    gap: 20px;
+}
+
+/* Estilos de los enlaces */
 .navbar_lista {
     text-decoration: none;
     cursor: pointer;
     color: var(--neutral-950);
+    padding: 8px 12px;
+    transition: color 0.3s ease-in-out;
 }
 
 .navbar_lista:hover {
     color: var(--sky-900);
+}
+
+/* Responsive: Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .menuToggle {
+        display: block; /* Muestra el menú hamburguesa */
+    }
+
+    .navbar_menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    .navbar_menu.active {
+        display: flex; /* Muestra el menú cuando está activo */
+    }
+
+    .navbar_lista {
+        font-size: 22px;
+        padding: 10px;
+        text-align: center;
+    }
 }
