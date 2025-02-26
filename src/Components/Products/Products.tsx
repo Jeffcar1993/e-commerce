@@ -91,7 +91,7 @@ const Products = () => {
       <div className={styles.bannerContainer}>
         <button onClick={prevBanner} className={styles.prevButton}>‹</button>
         <div className={styles.banner}>
-          <img src={banners[currentBanner].img} alt={banners[currentBanner].titulo} className={styles.bannerImg} />
+          <img src={banners[currentBanner].img || "default-image.jpg"} alt={banners[currentBanner].titulo} className={styles.bannerImg} />
           <div className={styles.bannerContent}>
             <h2 className={styles.tituloBanner}>{banners[currentBanner].titulo}</h2>
             <p className={styles.infoBanner}>{banners[currentBanner].descripcion}</p>

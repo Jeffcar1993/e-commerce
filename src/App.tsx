@@ -33,7 +33,7 @@ const App = () => {
       <BrowserRouter>
         <div className={styles.container}>
           <Link className={styles.logoContainer} to="/">
-             <img src="/logo.png" alt="" />
+             <img src="/logo.png" alt="logo" />
           </Link>
           <Navbar />
         </div>
