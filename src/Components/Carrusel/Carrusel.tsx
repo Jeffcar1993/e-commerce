@@ -41,11 +41,26 @@ const Carrusel = () => {
     dots: false,
     infinite: true,
     speed: 1000,
-    slidesToShow: 3,
+    slidesToShow: 3, // Por defecto en pantallas grandes
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024, // Tablets
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 600, // Celulares
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
+  
 
   return (
     <div className={styles.suggestedContainer}>

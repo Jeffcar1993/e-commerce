@@ -1,79 +1,141 @@
+/* Contenedor principal: ajusta elementos y permite responsividad */
 .itemContainer {
     display: flex;
-    gap: 48px;
+    flex-wrap: wrap; /* Permite ajuste dinámico */
+    gap: 32px;
     justify-content: center;
     margin-bottom: 24px;
 }
 
+/* Contenedor de cada producto */
 .itemContain {
     display: flex;
     flex-direction: column;
-    margin-bottom: 24px;
+    align-items: center; /* Centra en pantallas pequeñas */
 }
 
+/* Contenedor de la imagen */
 .contenedorImagen {
-    width: 500px;
-    height: 500px;
-    margin-top: 24px;
-    margin-bottom: 24px;
+    max-width: 450px;
+    height: auto;
+    margin: 16px 0;
 }
 
+/* Ajuste de imagen para que siempre se vea bien */
 .itemImagen {
-    display: flex;
-    object-fit: cover;
     width: 100%;
+    height: auto;
+    max-height: 450px; /* Evita imágenes demasiado grandes */
+    object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 24px;
 }
-    
+
+/* Contenedor de información */
 .itemInfo {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
+    text-align: center;
 }
 
+/* Título del producto */
 .itemTitulo {
-    font-size: 48px;
+    font-size: 36px;
     font-weight: 600;
-    margin-bottom: 24px;
-    margin-top: 24px;
 }
 
+/* Descripción del producto */
 .itemDescripcion {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
 }
 
+/* Categoría del producto */
 .itemCategoria {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
 }
 
+/* Precio */
 .itemPrecio {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 600;
+    color: black;
 }
 
+/* Stock disponible */
 .itemStock {
-    font-size: 18px;
-    font-weight: 200;
+    font-size: 16px;
+    font-weight: 300;
 }
 
+/* Contenedor de botones */
 .botonesCarrito {
     display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap; /* Se ajusta en pantallas pequeñas */
     align-items: flex-end;
-    gap: 75px;
 }
 
+/* Botón de agregar al carrito */
 .botonCarrito {
     padding: 16px 24px;
     background-color: orange;
     color: white;
     border-radius: 6px;
     border: none;
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
     text-decoration: none;
-    font-size: 20px;
-    font-weight: 600;
+}
+
+.botonCarrito:hover {
+    background-color: darkorange;
+}
+
+/* 🔹 RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .itemContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contenedorImagen {
+        max-width: 350px;
+    }
+
+    .itemTitulo {
+        font-size: 30px;
+    }
+
+    .itemDescripcion {
+        font-size: 18px;
+    }
+
+    .itemPrecio {
+        font-size: 24px;
+    }
+
+    .botonCarrito {
+        font-size: 16px;
+        padding: 20px 26px;
+    }
+}
+
+@media (max-width: 768px) {
+    .itemTitulo {
+        font-size: 24px;
+    }
+
+    .itemDescripcion {
+        font-size: 16px;
+    }
+
+    .botonCarrito {
+        font-size: 16px;
+        padding: 10px 16px;
+    }
 }

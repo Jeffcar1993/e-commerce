@@ -63,3 +63,110 @@
     margin-top: 40px;
   }
   
+
+
+/* Ajuste en pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 15px;
+    }
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Subtítulo */
+.subtituloNosotros {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Tamaño más pequeño en móviles */
+@media (max-width: 480px) {
+    .subtituloNosotros {
+        font-size: 2rem;
+    }
+}
+
+.highlight {
+    color: #ff6600;
+    line-height: 32px;
+}
+
+/* Texto general */
+p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Reducir tamaño en móviles */
+@media (max-width: 480px) {
+    p {
+        font-size: 1rem;
+    }
+}
+
+/* Sección de categorías */
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* Estilos de cada categoría */
+.category {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    min-width: 280px;
+}
+
+/* En pantallas pequeñas, 100% ancho */
+@media (max-width: 768px) {
+    .category {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+h3 {
+    color: #ff6600;
+    font-size: 1.5rem;
+}
+
+/* Listas */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    font-size: 1.1rem;
+    color: #444;
+    margin: 5px 0;
+}
+
+/* Mensaje final */
+.valueProp {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #222;
+    margin-top: 40px;
+}
+
+/* Reducir tamaño en móviles */
+@media (max-width: 480px) {
+    .valueProp {
+        font-size: 1.1rem;
+        margin-top: 30p
+    }
+  }
